@@ -2,7 +2,7 @@
 import streamlit as st
 from home import home
 from cv import display_cv
-from jokes import generate_joke
+from jokes import display_joke
 
 # main
 def main():
@@ -10,15 +10,15 @@ def main():
     page = st.sidebar.selectbox("Choose a page", [
         "Home",
         "Curriculum Vitae",
-        "Jokes by AI"
+        "Joke Generator"
     ])
 
     if page == "Home":
         home()
     elif page == "Curriculum Vitae":
         display_cv()
-    elif page == "Jokes by AI":
-        generate_joke()
+    elif page == "Joke Generator":
+        display_joke()
 
 if __name__ == "__main__":
     main()

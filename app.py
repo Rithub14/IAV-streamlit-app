@@ -1,10 +1,8 @@
-# imports
 import streamlit as st
 from home import home
 from cv import display_cv
 from jokes import display_joke
 
-# main
 def main():
     st.sidebar.title("Navigation")
     page = st.sidebar.selectbox("Choose a page", [

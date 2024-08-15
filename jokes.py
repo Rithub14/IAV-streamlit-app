@@ -2,6 +2,7 @@ import streamlit as st
 from openai import OpenAI 
 import os
 from dotenv import load_dotenv
+import streamlit.components.v1 as components
 
 # Load environment variables from .env file
 load_dotenv()
@@ -13,6 +14,22 @@ if not api_key:
     raise ValueError("API key not found.")
 
 client = OpenAI(api_key=api_key)
+
+# Function to increase the size of expander label 
+def ChangeWidgetFontSize(wgt_txt_list, wch_font_size):
+    text_conditions = "".join(
+        f"if (elements[i].innerText == '{txt}') {{ elements[i].style.fontSize = '{wch_font_size}'; }}" 
+        for txt in wgt_txt_list
+    )
+    
+    htmlstr = f"""<script>
+                    var elements = window.parent.document.querySelectorAll('*');
+                    for (var i = 0; i < elements.length; ++i) {{
+                        {text_conditions}
+                    }}
+                  </script>"""
+    
+    components.html(htmlstr, height=0, width=0)
 
 def generate_joke(humor_type, content_theme, audience, delivery_style):
     completion = client.chat.completions.create(
@@ -48,3 +65,6 @@ def display_joke():
             joke = generate_joke(humor_type, content_theme, audience, delivery_style)
         st.write("Here's your joke:")
         st.write(joke)
+    
+    list_of_wgt_txt = ["Select type of humor:", 'Select content/theme:', 'Select delivery style:', 'Select delivery style:']
+    ChangeWidgetFontSize(list_of_wgt_txt, '20px')

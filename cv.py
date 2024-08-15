@@ -10,14 +10,12 @@ profile_image = current_dir / "files" / "pic.png"
 
 # Function to increase the size of expander label 
 st.set_page_config(layout = "wide", initial_sidebar_state = "expanded")
-def ChangeWidgetFontSize(wgt_txt_list, wch_font_size='12px'):
-    # Create a list of text conditions for the JavaScript code
+def ChangeWidgetFontSize(wgt_txt_list, wch_font_size):
     text_conditions = "".join(
         f"if (elements[i].innerText == '{txt}') {{ elements[i].style.fontSize = '{wch_font_size}'; }}" 
         for txt in wgt_txt_list
     )
     
-    # Generate the HTML string with the embedded JavaScript code
     htmlstr = f"""<script>
                     var elements = window.parent.document.querySelectorAll('*');
                     for (var i = 0; i < elements.length; ++i) {{
@@ -25,11 +23,9 @@ def ChangeWidgetFontSize(wgt_txt_list, wch_font_size='12px'):
                     }}
                   </script>"""
     
-    # Render the HTML with the specified height and width
     components.html(htmlstr, height=0, width=0)
 
 def display_cv():
-
     col1, col2 = st.columns([3, 1])
 
     with col1:
@@ -40,6 +36,10 @@ def display_cv():
 
     with col2:
         st.image(str(profile_image))
+
+    # Button to download the resume/cv
+    with open(resume_file, "rb") as file:
+        st.download_button("Download CV", file, "Muhammad_Rizwan_Aslam_Resume.pdf")
 
     st.write("##### Hi! I am Rizwan, a ML engineer with focused experience in generative AI and diverse ML areas, passionate about leveraging AI to solve complex business challenges across industries. #####")
 
@@ -80,7 +80,3 @@ def display_cv():
     
     list_of_wgt_txt = ['Skills 👩‍💻', 'Education 🎓', 'Experience 🚧', 'Projects 🏆', 'Certifications 🥇']
     ChangeWidgetFontSize(list_of_wgt_txt, '20px')
-    
-    # Button to download the resume/cv
-    with open(resume_file, "rb") as file:
-        st.download_button("Download CV", file, "Muhammad_Rizwan_Aslam_Resume.pdf")

@@ -39,7 +39,7 @@ To run this project locally, follow these steps:
     streamlit run app.py
 
 **Folder Structure**:
-    ``bash
+    ```bash
     IAV-APP/
     │
     ├── .streamlit/

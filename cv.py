@@ -8,9 +8,8 @@ current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 resume_file = current_dir / "files" / "Muhammad_Rizwan_Aslam_Resume.pdf"
 profile_image = current_dir / "files" / "pic.png"
 
-st.set_page_config(layout = "wide", initial_sidebar_state = "expanded")
-
 # Function to increase the size of expander label 
+st.set_page_config(layout = "wide", initial_sidebar_state = "expanded")
 def ChangeWidgetFontSize(wgt_txt_list, wch_font_size='12px'):
     # Create a list of text conditions for the JavaScript code
     text_conditions = "".join(

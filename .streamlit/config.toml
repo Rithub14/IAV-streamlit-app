@@ -1,4 +1,5 @@
 [theme]
-base = "light"  # or "dark" if you prefer
-primaryColor = "#F63366"  # Customize this color as needed
-font = "sans serif"
+primaryColor = "#6D28D9"  # Deep Purple
+backgroundColor = "#F3F4F6"  # Light Gray
+secondaryBackgroundColor = "#E5E7EB"  # Pale Gray
+textColor = "#374151"  # Dark Gray

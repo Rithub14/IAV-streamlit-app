@@ -26,16 +26,20 @@ To run this project locally, follow these steps:
     ```bash
     python -m venv venv
     source venv/bin/activate   # On macOS and Linux
-
+    # OR
+    ```bash
     venv\Scripts\activate      # On Windows
 
 4. **Install Dependencies**:
+    ```bash
     pip install -r requirements.txt
 
 5. **Create a .env File**:
+    ```bash
     OPENAI_API_KEY=your_openai_api_key
 
 6. **Run the Application**:
+    ```bash
     streamlit run app.py
 
 ## Folder Structure

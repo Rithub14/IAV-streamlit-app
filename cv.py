@@ -1,28 +1,39 @@
 import streamlit as st
 from pathlib import Path
+import streamlit.components.v1 as components
+
 
 # Path Settings
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 resume_file = current_dir / "files" / "Muhammad_Rizwan_Aslam_Resume.pdf"
 profile_image = current_dir / "files" / "pic.png"
 
-# Styling of the expander headers
-st.markdown("""
-  <style>
-    .st-emotion-cache-13bfgw8 p {
-    word-break: break-word;
-    margin-bottom: 0px;
-    font-size: 20px;
-            }
-  </style>
-""", unsafe_allow_html=True)
+st.set_page_config(layout = "wide", initial_sidebar_state = "expanded")
+
+# Function to increase the size of expander label 
+def ChangeWidgetFontSize(wgt_txt_list, wch_font_size='12px'):
+    # Create a list of text conditions for the JavaScript code
+    text_conditions = "".join(
+        f"if (elements[i].innerText == '{txt}') {{ elements[i].style.fontSize = '{wch_font_size}'; }}" 
+        for txt in wgt_txt_list
+    )
+    
+    # Generate the HTML string with the embedded JavaScript code
+    htmlstr = f"""<script>
+                    var elements = window.parent.document.querySelectorAll('*');
+                    for (var i = 0; i < elements.length; ++i) {{
+                        {text_conditions}
+                    }}
+                  </script>"""
+    
+    # Render the HTML with the specified height and width
+    components.html(htmlstr, height=0, width=0)
 
 def display_cv():
 
     col1, col2 = st.columns([3, 1])
 
     with col1:
-        # st.header("Curriculum Vitae")
         st.write("### Muhammad Rizwan Aslam")
         st.write("**Email:** rizwanaslam.work@gmail.com")
         st.write("**LinkedIn:** [LinkedIn Profile](https://www.linkedin.com/in/rizwan-aslam-cs/)")
@@ -42,7 +53,6 @@ def display_cv():
         with col2:
             st.write("Germany (2023 - 2025)")
             st.write("Pakistan (2019 - 2023)")
-
 
     with st.expander("Skills 👩‍💻"):
         st.write("**Programming Languages:** Python, SQL, Java")
@@ -68,7 +78,10 @@ def display_cv():
     with st.expander("Certifications 🥇"):
         st.write("• Machine Learning Specialization - DeepLearning.AI")
         st.write("• Deep Learning Specialization - DeepLearning.AI")
-
+    
+    list_of_wgt_txt = ['Skills 👩‍💻', 'Education 🎓', 'Experience 🚧', 'Projects 🏆', 'Certifications 🥇']
+    ChangeWidgetFontSize(list_of_wgt_txt, '20px')
+    
     # Button to download the resume/cv
     with open(resume_file, "rb") as file:
         st.download_button("Download CV", file, "Muhammad_Rizwan_Aslam_Resume.pdf")

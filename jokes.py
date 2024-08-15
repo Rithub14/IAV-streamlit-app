@@ -43,7 +43,7 @@ def display_joke():
         "Sarcastic", "Self-Deprecating", "Dry Humor"
     ])
 
-    if st.button("Generate Joke"):
+    if st.button("Generate"):
         with st.spinner("Generating joke..."):
             joke = generate_joke(humor_type, content_theme, audience, delivery_style)
         st.write("Here's your joke:")

@@ -1,0 +1,4 @@
+[theme]
+base = "light"  # or "dark" if you prefer
+primaryColor = "#F63366"  # Customize this color as needed
+font = "sans serif"

@@ -38,12 +38,14 @@ To run this project locally, follow these steps:
     ```bash
     streamlit run app.py
 
-## Folder Structure
-    ```bash
+**Folder Structure**:
+    ``bash
     IAV-APP/
     │
     ├── .streamlit/
     │   └── config.toml
+    │
+    ├── __pycache__/
     │
     ├── files/
     │   ├── animation.json
@@ -53,13 +55,10 @@ To run this project locally, follow these steps:
     │   ├── Muhammad_Rizwan_Aslam_Resume.pdf
     │   └── pic.png
     │
-    ├── __pycache__/
-    │
-    ├── .env
     ├── .gitignore
+    ├── README.md
     ├── app.py
     ├── cv.py
     ├── home.py
     ├── jokes.py
-    ├── README.md
     └── requirements.txt

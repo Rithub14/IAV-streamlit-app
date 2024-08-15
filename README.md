@@ -39,27 +39,27 @@ To run this project locally, follow these steps:
     streamlit run app.py
 
 ## Folder Structure
-
-IAV-APP/
-│
-├── .streamlit/
-│   └── config.toml
-│
-├── files/
-│   ├── animation.json
-│   ├── github_logo.svg
-│   ├── gmail_logo.svg
-│   ├── linkedin_logo.svg
-│   ├── Muhammad_Rizwan_Aslam_Resume.pdf
-│   └── pic.png
-│
-├── __pycache__/
-│
-├── .env
-├── .gitignore
-├── app.py
-├── cv.py
-├── home.py
-├── jokes.py
-├── README.md
-└── requirements.txt
+    ```bash
+    IAV-APP/
+    │
+    ├── .streamlit/
+    │   └── config.toml
+    │
+    ├── files/
+    │   ├── animation.json
+    │   ├── github_logo.svg
+    │   ├── gmail_logo.svg
+    │   ├── linkedin_logo.svg
+    │   ├── Muhammad_Rizwan_Aslam_Resume.pdf
+    │   └── pic.png
+    │
+    ├── __pycache__/
+    │
+    ├── .env
+    ├── .gitignore
+    ├── app.py
+    ├── cv.py
+    ├── home.py
+    ├── jokes.py
+    ├── README.md
+    └── requirements.txt

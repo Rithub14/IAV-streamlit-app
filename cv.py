@@ -1,25 +1,48 @@
 import streamlit as st
 from pathlib import Path
 
-# --- PATH SETTINGS ---
+# Path Settings
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 resume_file = current_dir / "files" / "Muhammad_Rizwan_Aslam_Resume.pdf"
 profile_image = current_dir / "files" / "pic.png"
 
-def display_cv():
-    # Button to download the resume/cv
-    with open(resume_file, "rb") as file:
-        st.download_button("Download CV", file, "Muhammad_Rizwan_Aslam_Resume.pdf")
+# Styling of the expander headers
+st.markdown("""
+  <style>
+    .st-emotion-cache-13bfgw8 p {
+    word-break: break-word;
+    margin-bottom: 0px;
+    font-size: 20px;
+            }
+  </style>
+""", unsafe_allow_html=True)
 
-    st.header("Curriculum Vitae")
-    st.write("### Muhammad Rizwan Aslam")
-    st.write("**Email:** rizwanaslam.work@gmail.com")
-    st.write("**LinkedIn:** [LinkedIn Profile](https://www.linkedin.com/in/rizwan-aslam-cs/)")
-    st.write("**GitHub:** [GitHub Profile](https://github.com/Rithub14)")
+def display_cv():
+
+    col1, col2 = st.columns([3, 1])
+
+    with col1:
+        # st.header("Curriculum Vitae")
+        st.write("### Muhammad Rizwan Aslam")
+        st.write("**Email:** rizwanaslam.work@gmail.com")
+        st.write("**LinkedIn:** [LinkedIn Profile](https://www.linkedin.com/in/rizwan-aslam-cs/)")
+        st.write("**GitHub:** [GitHub Profile](https://github.com/Rithub14)")
+
+    with col2:
+        st.image(str(profile_image))
+
+    st.write("##### Hi! I am Rizwan, a ML engineer with focused experience in generative AI and diverse ML areas, passionate about leveraging AI to solve complex business challenges across industries. #####")
 
     with st.expander("Education 🎓"):
-        st.write("**MSc Artificial Intelligence** - Brandenburg University of Technology (BTU Cottbus), Germany (2023 - 2025)")
-        st.write("**BSc Computer Science** - COMSATS University Islamabad, Pakistan (2019 - 2023)")
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            st.write("**MSc Artificial Intelligence** - Brandenburg University of Technology")
+            st.write("**BSc Computer Science** - COMSATS University Islamabad, Pakistan")
+        
+        with col2:
+            st.write("Germany (2023 - 2025)")
+            st.write("Pakistan (2019 - 2023)")
+
 
     with st.expander("Skills 👩‍💻"):
         st.write("**Programming Languages:** Python, SQL, Java")
@@ -36,9 +59,16 @@ def display_cv():
         st.write("• Implemented an algorithm leveraging Spring Boot to generate and read QR codes seamlessly.")
 
     with st.expander("Projects 🏆"):
-        st.write("**RAG (Retrieval-Augmented Generation)** - Deployed a Streamlit web application for document processing.")
-        st.write("**Comic AI** - Created an AI-powered comic strip generator using OpenAI and Stable Diffusion.")
+        st.write("**RAG (Retrieval-Augmented Generation)** | LangChain - OpenAI - Pinecone - Streamlit")
+        st.write("• Deployed a Streamlit web application for document processing")
+
+        st.write("**Comic AI** | OpenAI - Stable Diffusion - Streamlit")
+        st.write("• Created an AI-powered comic strip generator using OpenAI and Stable Diffusion.")
     
     with st.expander("Certifications 🥇"):
         st.write("• Machine Learning Specialization - DeepLearning.AI")
         st.write("• Deep Learning Specialization - DeepLearning.AI")
+
+    # Button to download the resume/cv
+    with open(resume_file, "rb") as file:
+        st.download_button("Download CV", file, "Muhammad_Rizwan_Aslam_Resume.pdf")

@@ -35,7 +35,7 @@ def generate_joke(humor_type, content_theme, audience, delivery_style):
     completion = client.chat.completions.create(
     model=MODEL,
     messages=[
-        {"role": "system", "content": "You are a helpful assistant. Your task is to tell me a joke!"}, # <-- This is the system message that provides context to the model
+        {"role": "system", "content": "You are a helpful assistant. Your task is to tell me a joke!"},
         {"role": "user", "content": f'Generate a {humor_type} {content_theme} joke for a {audience} audience with a {delivery_style} delivery style:'}
         ]
     )

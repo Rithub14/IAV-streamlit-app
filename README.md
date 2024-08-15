@@ -16,12 +16,14 @@ To run this project locally, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Rithub14/portfolio.git
+   git clone https://github.com/Rithub14/IAV-streamlit-app.git
 
-2. **Navigate to the Project Directory:**:
+2. **Navigate to the Project Directory**:
+    ```bash
     cd portfolio
 
-3. **Set Up a Virtual Environment (optional but recommended):**:
+3. **Set Up a Virtual Environment (optional but recommended)**:
+    ```bash
     python -m venv venv
     source venv/bin/activate   # On macOS and Linux
 
@@ -30,10 +32,10 @@ To run this project locally, follow these steps:
 4. **Install Dependencies**:
     pip install -r requirements.txt
 
-5. **Create a .env File:**:
+5. **Create a .env File**:
     OPENAI_API_KEY=your_openai_api_key
 
-6. **Run the Application:**:
+6. **Run the Application**:
     streamlit run app.py
 
 ## Folder Structure

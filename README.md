@@ -38,7 +38,7 @@ To run this project locally, follow these steps:
     ```bash
     streamlit run app.py
 
-**Folder Structure**:
+## Folder Structure:
     ```bash
     IAV-APP/
     │
@@ -62,3 +62,4 @@ To run this project locally, follow these steps:
     ├── home.py
     ├── jokes.py
     └── requirements.txt
+    ```

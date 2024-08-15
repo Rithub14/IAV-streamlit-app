@@ -24,7 +24,7 @@ To run this project locally, follow these steps:
 
 3. **Set Up a Virtual Environment (optional but recommended)**:
     ```bash
-    venv\Scripts\activate      # On Windows
+    venv\Scripts\activate
 
 4. **Install Dependencies**:
     ```bash
@@ -39,7 +39,7 @@ To run this project locally, follow these steps:
     streamlit run app.py
 
 ## Folder Structure:
-$ tree
+```
     IAV-APP/
     │
     ├── .streamlit/
@@ -62,3 +62,4 @@ $ tree
     ├── home.py
     ├── jokes.py
     └── requirements.txt
+```

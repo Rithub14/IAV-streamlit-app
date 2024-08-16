@@ -13,7 +13,14 @@ def load_lottie_json():
     
 def home():
     st.title("Welcome to IAV Application")
-    st.write("This is the Home Page. Please select an option from the sidebar to proceed.")
+    st.write(
+        """
+        This is the Home Page of IAV App. You can navigate through the application using the sidebar to:
+        - View my **Curriculum Vitae**
+        - Generate **Jokes** using AI
+        """
+    )
+    st.write("Explore the options and have fun!")
 
     lottie_json = load_lottie_json()
     

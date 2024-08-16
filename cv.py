@@ -2,6 +2,11 @@ import streamlit as st
 from pathlib import Path
 import streamlit.components.v1 as components
 
+import os
+from rag import pinecone_index, gpt_answer
+from dotenv import load_dotenv
+from openai import OpenAI 
+
 # Path Settings
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 resume_file = current_dir / "files" / "Muhammad_Rizwan_Aslam_Resume.pdf"
@@ -14,6 +19,17 @@ gmail_logo = current_dir / "files" / "gmail_logo.svg"
 gmail_url = "mailto:rizwanaslam.work@gmail.com"
 linkedin_url = "https://www.linkedin.com/in/rizwan-aslam-cs/"
 github_url = "https://github.com/Rithub14"
+
+# Load environment variables from .env file
+load_dotenv()
+
+MODEL="gpt-4o-mini"
+api_key = os.getenv("OPENAI_API_KEY")
+
+if not api_key:
+    raise ValueError("API key not found.")
+
+client = OpenAI(api_key=api_key)
 
 # Function to increase the size of expander label 
 st.set_page_config(layout="wide", initial_sidebar_state="expanded")
@@ -61,7 +77,7 @@ def display_cv():
                     unsafe_allow_html=True
                 ) 
         with col3:
-            # GitHub logo with no bottom margin (last item in the list)
+            # GitHub logo with no bottom margin
             with open(github_logo, "r") as svg_file:
                 github_logo_svg = svg_file.read()
                 st.markdown(
@@ -124,6 +140,13 @@ def display_cv():
         st.write("• Machine Learning Specialization - DeepLearning.AI")
         st.write("• Deep Learning Specialization - DeepLearning.AI")
         st.write("• Python for Data Science and Machine Learning Bootcamp- Udemy")
-    
-    list_of_wgt_txt = ['Skills 👩‍💻', 'Education 🎓', 'Experience 🚧', 'Projects 🏆', 'Certifications 🥇']
+
+    # RAG
+    vector_store = pinecone_index()
+    query = st.text_input('Ask GPT anything about me:', placeholder="Educational Background / Work Experience / Projects")
+    if query:
+        answer = gpt_answer(vector_store, query, k=5)
+        st.text_area('LLM Expert:', answer, height=300)
+
+    list_of_wgt_txt = ['Skills 👩‍💻', 'Education 🎓', 'Experience 🚧', 'Projects 🏆', 'Certifications 🥇', 'Ask GPT anything about me:']
     ChangeWidgetFontSize(list_of_wgt_txt, '20px')

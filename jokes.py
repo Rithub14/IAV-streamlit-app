@@ -15,7 +15,7 @@ if not api_key:
 
 client = OpenAI(api_key=api_key)
 
-# Function to increase the size of expander label 
+# Function to increase the size of selectbox label
 def ChangeWidgetFontSize(wgt_txt_list, wch_font_size):
     text_conditions = "".join(
         f"if (elements[i].innerText == '{txt}') {{ elements[i].style.fontSize = '{wch_font_size}'; }}" 

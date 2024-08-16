@@ -7,7 +7,7 @@ Welcome to IAV app! This project features a Python-based Streamlit app that incl
 The application consists of the following pages:
 
 1. **Home Page**: Displays a welcoming message and an animation.
-2. **Curriculum Vitae**: Showcases my CV with detailed professional information. A mini RAG (Retrievel Augmented Generation) chatbot is also available, from which you can ask questions about me.
+2. **Curriculum Vitae**: Showcases my CV with detailed professional information. A RAG (Retrievel Augmented Generation) chatbot is also available, from which you can ask questions about me.
 3. **Joke Generator**: Uses gpt-4o-mini to generate and display jokes based on user preferences.
 
 ## Installation and Setup

@@ -1,4 +1,4 @@
-# IAV Project
+# IAV App
 
 Welcome to IAV app! This project features a Python-based Streamlit app that includes my curriculum vitae and a joke generator powered by gpt-4o-mini.
 

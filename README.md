@@ -70,3 +70,6 @@ To run this project locally, follow these steps:
     ├── jokes.py
     └── requirements.txt
 ```
+
+## APP URL:
+- You can access the application at: [https://iav-app.streamlit.app/]

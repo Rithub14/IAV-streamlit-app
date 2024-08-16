@@ -68,6 +68,7 @@ To run this project locally, follow these steps:
     ├── cv.py
     ├── home.py
     ├── jokes.py
+    ├── rag.py
     └── requirements.txt
 ```
 

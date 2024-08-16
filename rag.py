@@ -1,6 +1,6 @@
 import os
 from langchain_openai import OpenAIEmbeddings
-# from pinecone import Pinecone
+from pinecone import Pinecone
 from langchain.vectorstores import Pinecone as Pineconevs
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
@@ -8,7 +8,7 @@ from langchain_openai import ChatOpenAI
 # pinecone
 def pinecone_index(index_name="rizwan-aslam-rag-project"):
     embeddings = OpenAIEmbeddings()
-    # pc = Pinecone(api_key=os.environ.get('PINECONE_API_KEY'))
+    pc = Pinecone(api_key=os.environ.get('PINECONE_API_KEY'))
     vector_store = Pineconevs.from_existing_index(index_name, embeddings)
     return vector_store
     

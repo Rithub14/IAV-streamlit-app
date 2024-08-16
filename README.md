@@ -26,6 +26,11 @@ To run this project locally, follow these steps:
     ```bash
     venv\Scripts\activate
     ```
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+
+    ```
 4. **Install Dependencies**:
     ```bash
     pip install -r requirements.txt
